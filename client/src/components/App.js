@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-// import {BrowserRouter as Route, Routes} from 'react-router-dom';
+import {Route, Routes} from 'react-router-dom';
 import '../App.css';
 import Header from './Header.js';
 import LogIn from './LogIn.js';
@@ -36,12 +36,12 @@ function App() {
     <div className="App">
       <header className="App-header">
       <Header user={user} onLogout={handleLogout}/>
-        {/* <Routes>
+        <Routes>
           <Route exact path="/login" element={<LogIn onLogin={handleLogin} />} />
           <Route path="/" element={<MovieList movies={movies}/>} />
-        </Routes> */}
-        <MovieList movies={movies}/>
-        <LogIn onLogin={handleLogin} />
+        </Routes>
+        {/* <MovieList movies={movies}/> */}
+        {/* <LogIn onLogin={handleLogin} /> */}
       </header>
     </div>
   );
