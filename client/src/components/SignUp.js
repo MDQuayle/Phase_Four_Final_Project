@@ -16,8 +16,11 @@ function SignUp({ onLogin }) {
           password,
           password_confirmation: passwordConfirmation,
         }),
-      });
-    }
+      })
+      .then((r) => {r.json()
+      .then((user) => onLogin(user));
+    });
+  }
   
     return (
       <form onSubmit={handleSubmit}>
