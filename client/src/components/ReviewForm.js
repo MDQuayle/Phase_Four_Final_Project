@@ -1,7 +1,7 @@
 import {useState} from 'react'
 function ReviewForm({id}) {
-    const [title, setTitle] = useState([]) 
-    const [content, setContent] = useState([]) 
+    const [title, setTitle] = useState("") 
+    const [content, setContent] = useState("") 
         function handleSubmit(e) {
         e.preventDefault();
         fetch(`http://localhost:3000/movies/${id}/reviews`, {

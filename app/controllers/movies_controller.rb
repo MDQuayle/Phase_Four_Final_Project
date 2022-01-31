@@ -4,7 +4,7 @@ class MoviesController < ApplicationController
         render json: movies, status: :ok
     end
     def show
-        movie = Movie.find_by[id: params[:id]]
+        movie = Movie.find_by(id: params[:id])
         render json: movie
     end
 end
