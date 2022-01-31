@@ -1,4 +1,5 @@
 import { useState } from "react"
+import SignUp from "./SignUp";
 
 function LogIn(onLogin){
         const [username, setUsername] = useState("");
@@ -18,6 +19,7 @@ function LogIn(onLogin){
         }
       
         return (
+          <>
           <form onSubmit={handleSubmit}>
               <label htmlFor="username">Username</label>
               <input
@@ -36,6 +38,8 @@ function LogIn(onLogin){
                 onChange={(e) => setPassword(e.target.value)}
                 />
               </form>
+              <SignUp/>
+              </>
         )}
 
 export default LogIn;
