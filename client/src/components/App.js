@@ -38,7 +38,7 @@ function App() {
       <Header user={user} onLogout={handleLogout}/>
         <Routes>
           <Route exact path="/login" element={<LogIn onLogin={handleLogin} />} />
-          <Route path="/" element={<MovieList movies={movies}/>} />
+          <Route path="/" element={<MovieList movies={movies} user={user}/>} />
         </Routes>
         {/* <MovieList movies={movies}/> */}
         {/* <LogIn onLogin={handleLogin} /> */}

@@ -1,6 +1,6 @@
 import ReviewForm from './ReviewForm.js'
-import ReviewCard from './ReviewCard.js'
-function MovieCard({movie, id}) {
+import ReviewList from './ReviewList.js'
+function MovieCard({movie, id, user}) {
     
     return(
         <div>
@@ -9,8 +9,8 @@ function MovieCard({movie, id}) {
             <p>Genre: {movie.genre}</p>
             <p>Summary: {movie.summary}</p>
             <p>Release Year: {movie.release_year}</p>
-            {/* <ReviewCard id={id}/>
-            <ReviewForm id={id}/> */}
+            <ReviewList id={id} user={user}/>
+            <ReviewForm id={id}/>
         </div>
         )
 }

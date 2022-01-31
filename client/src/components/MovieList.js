@@ -1,6 +1,6 @@
 import MovieCard from './MovieCard.js'
-function MovieList({movies}) {
-    const allMovies = movies.map((movie) => <MovieCard key = {movie.id} id={movie.id} movie={movie}/> )
+function MovieList({movies, user}) {
+    const allMovies = movies.map((movie) => <MovieCard key = {movie.id} id={movie.id} movie={movie} user={user}/> )
     return(
     <div>
         {allMovies}
