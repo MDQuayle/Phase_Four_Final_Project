@@ -37,6 +37,7 @@ function LogIn(onLogin){
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 />
+              <input type="submit" value="Submit" />
               </form>
               <SignUp/>
               </>

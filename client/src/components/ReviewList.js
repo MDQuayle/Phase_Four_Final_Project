@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
-
-function ReviewList({user}){
+import ReviewCard from './ReviewCard.js'
+function ReviewList({user, id}){
 const [reviews, setReviews] = useState([])
     useEffect(() => {
         fetch(`/movies/${id}`)

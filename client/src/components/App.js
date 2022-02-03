@@ -32,6 +32,8 @@ function App() {
     .then(movieData => setMovies(movieData))
   },[])
 
+  if (!user) return <LogIn onLogin={setUser} />;
+
   return (
     <div className="App">
       <header className="App-header">
@@ -40,8 +42,6 @@ function App() {
           <Route exact path="/login" element={<LogIn onLogin={handleLogin} />} />
           <Route path="/" element={<MovieList movies={movies} user={user}/>} />
         </Routes>
-        {/* <MovieList movies={movies}/> */}
-        {/* <LogIn onLogin={handleLogin} /> */}
       </header>
     </div>
   );
