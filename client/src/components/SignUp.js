@@ -1,8 +1,12 @@
 import { useState } from "react";
+import {useNavigate} from 'react-router-dom';
 function SignUp({ onLogin }) {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [passwordConfirmation, setPasswordConfirmation] = useState("");
+    const navigate = useNavigate()
+
+    
   
     function handleSubmit(e) {
       e.preventDefault();
@@ -14,12 +18,13 @@ function SignUp({ onLogin }) {
         body: JSON.stringify({
           username,
           password,
-          password_confirmation: passwordConfirmation,
+          password_confirmation: passwordConfirmation
         }),
-      })
-      .then((r) => {r.json()
-      .then((user) => onLogin(user));
-    });
+      }).then((r) => {
+        if (r.ok) {
+          r.json().then((user) => onLogin(user));
+      }});
+      navigate('/home')
   }
   
     return (

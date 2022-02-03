@@ -1,9 +1,11 @@
 import { useState } from "react"
+import {useNavigate} from 'react-router-dom';
 import SignUp from "./SignUp";
 
 function LogIn(onLogin){
         const [username, setUsername] = useState("");
         const [password, setPassword] = useState("");;
+        const navigate = useNavigate()
       
         function handleSubmit(e) {
           e.preventDefault();
@@ -12,10 +14,13 @@ function LogIn(onLogin){
             headers: {
               "Content-Type": "application/json",
             },
-            body: JSON.stringify({ username, password }),
+            body: JSON.stringify({ username }),
           }).then((r) => {
+            if (r.ok) {
               r.json().then((user) => onLogin(user));
+            }
           });
+          navigate('/home')
         }
       
         return (
@@ -39,7 +44,7 @@ function LogIn(onLogin){
                 />
               <input type="submit" value="Submit" />
               </form>
-              <SignUp/>
+              <SignUp onLogin={onLogin}/>
               </>
         )}
 
