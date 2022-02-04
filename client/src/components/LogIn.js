@@ -2,7 +2,7 @@ import { useState } from "react"
 import {useNavigate} from 'react-router-dom';
 import SignUp from "./SignUp";
 
-function LogIn(onLogin){
+function LogIn({onLogin}){
         const [username, setUsername] = useState("");
         const [password, setPassword] = useState("");;
         const navigate = useNavigate()
