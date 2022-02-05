@@ -1,9 +1,9 @@
 class ReviewsController < ApplicationController
     def index
-      reviews = Review.find_by(movie_id: params[:id])
+      reviews = Review.all
       render json: reviews
     end
-    
+
     def create
         review = Review.create!(review_params)
         render json: review, status: :created
