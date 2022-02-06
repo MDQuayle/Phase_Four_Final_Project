@@ -1,19 +1,24 @@
 import {useState} from 'react'
-function ReviewForm({id}) {
+function ReviewForm({id, newReview}) {
     const [title, setTitle] = useState("") 
     const [content, setContent] = useState("") 
         function handleSubmit(e) {
-        e.preventDefault();
-        fetch(`/movies/${id}/reviews`, {
+        e.preventDefault()
+        setTitle("")
+        setContent("")
+        fetch(`http://localhost:3000/movies/${id}/reviews`, {
           method: "POST",
+          mode: "no-cors",
           headers: {
             "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*"
           },
           body: JSON.stringify({
             title,
-            content,
-          }),
-        });
+            content})
+          })
+        .then(res => res.json())
+        .then((review) => newReview(review))
       }
     
       return (
