@@ -34,14 +34,14 @@ function SignUp({ onLogin }) {
         <label htmlFor="username">Username</label>
         <input
           type="text"
-          id="username"
+          id="signUpUsername"
           autoComplete="off"
           value={username}
           onChange={(e) => setUsername(e.target.value)} />
         <label htmlFor="password">Password</label>
         <input
           type="password"
-          id="password"
+          id="signUpPassword"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           autoComplete="current-password" />

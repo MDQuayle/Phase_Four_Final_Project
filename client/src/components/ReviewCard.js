@@ -3,7 +3,7 @@ function ReviewCard({review, user}){
             <div>
                 <h4>{review.title}</h4>
                 <p>{review.content}</p>
-                <p>User: {user.username}</p>
+                {/* <p>{user.username}</p> */}
             </div>
             )
     }
