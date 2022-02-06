@@ -4,9 +4,9 @@ import ReviewForm from './ReviewForm.js'
 function ReviewList({user, id}){
 const [reviews, setReviews] = useState([])
     useEffect(() => {
-        fetch(`/movies/${id}`)
+        fetch(`/movies/${id}/reviews`)
         .then(res=> res.json())
-        .then(singlemovieData => setReviews(singlemovieData.reviews))
+        .then(reviews => setReviews(reviews))
       },[])
       
       const allReviews = reviews.map((review) => <ReviewCard key = {review.id} id={review.id} review={review} user={user}/> )

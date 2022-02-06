@@ -4,7 +4,7 @@ function ReviewForm({id}) {
     const [content, setContent] = useState("") 
         function handleSubmit(e) {
         e.preventDefault();
-        fetch(`http://localhost:3000/movies/${id}/reviews`, {
+        fetch(`/movies/${id}/reviews`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -17,9 +17,11 @@ function ReviewForm({id}) {
       }
     
       return (
+        <>
+        <h4>Add Your Review</h4>
         <form onSubmit={handleSubmit}>
           
-            <label htmlFor="title">Title:</label>
+            <label>Review Title:</label>
             <input
               type="text"
               id="title"
@@ -28,17 +30,20 @@ function ReviewForm({id}) {
               onChange={(e) => setTitle(e.target.value)}
             />
 
-          
-            <label htmlFor="content">Review:</label>
-            <input
+            <p>
+            <label>Review:</label>
+            <input className="content"
               type="text"
               id="content"
               value={content}
               onChange={(e) => setContent(e.target.value)}
               autoComplete="off"
             />
+            </p>
+            <input type="submit" value="Submit" />
 
           </form>
+          </>
       )
 }
 
