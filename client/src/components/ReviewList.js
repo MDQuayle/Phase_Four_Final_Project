@@ -15,8 +15,12 @@ const [reviews, setReviews] = useState([])
     function newReview(newReview){
         setReviews([...reviews, newReview])
     }
+    function onReviewDelete(id) {
+      const updatedReviews = reviews.filter((review) => review.id !== id);
+      setReviews(updatedReviews);
+    }
       
-      const allReviews = reviews.map((review) => <ReviewCard key = {review.id} id={review.id} review={review}/> )
+      const allReviews = reviews.map((review) => <ReviewCard key = {review.id} id={review.id} review={review} onReviewDelete={onReviewDelete}/> )
     
  return (
     <div>
