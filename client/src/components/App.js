@@ -32,8 +32,6 @@ function App() {
     .then(movieData => setMovies(movieData))
   },[])
 
-  if (!user) return <LogIn onLogin={handleLogin} />;
-
   return (
     <div className="App">
       <header className="App-header">
