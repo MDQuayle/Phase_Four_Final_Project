@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 2022_01_23_140032) do
     t.string "genre"
     t.text "summary"
     t.integer "release_year"
+    t.boolean "watched"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

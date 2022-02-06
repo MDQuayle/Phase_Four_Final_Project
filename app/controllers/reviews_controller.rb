@@ -10,8 +10,8 @@ class ReviewsController < ApplicationController
   end 
 
     def create
-        review = Review.create!(review_params)
-        render json: review, status: :created
+      review = Review.create!(review_params)
+      render json: review
     end
 
     def update
@@ -36,7 +36,7 @@ class ReviewsController < ApplicationController
 
     private
     def review_params
-        params.permit(:title, :content)
+        params.permit(:title, :content, :movie_id)
     end
     
 end

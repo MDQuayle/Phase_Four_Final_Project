@@ -6,7 +6,6 @@ class CreateMovies < ActiveRecord::Migration[6.1]
       t.string :genre
       t.text :summary
       t.integer :release_year
-
       t.timestamps
     end
   end
