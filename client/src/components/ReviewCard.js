@@ -14,7 +14,7 @@ function ReviewCard({review, onReviewDelete, id}){
             headers: {
                 "Content-Type": "application/json",
             },
-             body: JSON.stringify({ likes: review.likes +1 }),
+             body: JSON.stringify({likes: review.likes +1 }),
             })
         setLikes(likes+1)
 
@@ -24,7 +24,7 @@ function ReviewCard({review, onReviewDelete, id}){
                 <h4>{review.title}</h4>
                 <p>{review.content}</p>
                 <button onClick={handleDeleteClick}>Delete Review</button>
-                <button onClick={handleLikeClick}>Likes: {review.likes}</button>
+                <button onClick={handleLikeClick}>Likes: {likes}</button>
             </div>
             )
     }
