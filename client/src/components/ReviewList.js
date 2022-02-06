@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import ReviewCard from './ReviewCard.js'
+import ReviewForm from './ReviewForm.js'
 function ReviewList({user, id}){
 const [reviews, setReviews] = useState([])
     useEffect(() => {
@@ -12,7 +13,9 @@ const [reviews, setReviews] = useState([])
     
  return (
     <div>
+        <h2>Reviews:</h2>
         {allReviews}
+        <ReviewForm id = {id}/>
     </div>
  )   
     

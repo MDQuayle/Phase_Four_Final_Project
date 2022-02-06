@@ -1,4 +1,3 @@
-import ReviewForm from './ReviewForm.js'
 import ReviewList from './ReviewList.js'
 function MovieCard({movie, id, user}) {
     
@@ -9,8 +8,7 @@ function MovieCard({movie, id, user}) {
             <p>Genre: {movie.genre}</p>
             <p>Summary: {movie.summary}</p>
             <p>Release Year: {movie.release_year}</p>
-            {/* <ReviewList id={id} user={user}/>
-            <ReviewForm id={id}/> */}
+            <ReviewList id={id} user={user}/>
         </div>
         )
 }
