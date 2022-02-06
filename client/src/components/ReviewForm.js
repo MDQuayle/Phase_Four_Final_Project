@@ -8,7 +8,7 @@ function ReviewForm({id, newReview}) {
         setContent("")
         fetch(`http://localhost:3000/movies/${id}/reviews`, {
           method: "POST",
-          mode: "no-cors",
+          mode: "cors",
           headers: {
             "Content-Type": "application/json",
             "Access-Control-Allow-Origin": "*"

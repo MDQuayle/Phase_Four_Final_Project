@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import ReviewCard from './ReviewCard.js'
 import ReviewForm from './ReviewForm.js'
-function ReviewList({user, id}){
+function ReviewList({id}){
 const [reviews, setReviews] = useState([])
 
 
