@@ -1,8 +1,13 @@
 class ReviewsController < ApplicationController
-    def index
+  def index
+    if params[:movie_id]
+      movie = Movie.find(params[:movie_id])
+      reviews = movie.reviews
+    else
       reviews = Review.all
-      render json: reviews
     end
+    render json: reviews, include: :movie
+  end 
 
     def create
         review = Review.create!(review_params)

@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :movies, only: [:index, :show]
+  resources :movies, only: [:index, :show] do
+    resources :reviews, only: [:index]
+  end
   resources :reviews
   post "/signup", to: "users#create" 
   get "/me", to: "users#show" 
