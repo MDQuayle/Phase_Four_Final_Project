@@ -3,6 +3,7 @@ Rails.application.routes.draw do
     resources :reviews, only: [:index, :create]
   end
   resources :reviews
+  get "/alphabetize", to: "movies#alphabetize"
   post "/signup", to: "users#create" 
   get "/me", to: "users#show" 
   post "/login", to: "sessions#create"

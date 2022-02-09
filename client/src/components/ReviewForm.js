@@ -2,6 +2,7 @@ import {useState} from 'react'
 function ReviewForm({id, newReview}) {
     const [title, setTitle] = useState("") 
     const [content, setContent] = useState("") 
+    const[errors, setErrors] = useState("")
     const formValues = {
         title: title,
         content: content,
@@ -17,10 +18,18 @@ function ReviewForm({id, newReview}) {
           },
           body: JSON.stringify(formValues),
         })
-          .then((response) => response.json())
-          .then((review) => newReview(review));
-          setTitle("")
-          setContent("")
+        .then((response) => {
+          if (response.ok) {
+            response.json().then((review) => {
+              setTitle("");
+              setContent("");
+              setErrors([]);
+              newReview(review);
+            });
+          } else {
+          setErrors("Invalid Entry. Please include a title and at least 10 characters for your review");
+          }
+        });
       }
     
       return (
@@ -48,7 +57,9 @@ function ReviewForm({id, newReview}) {
             />
             </p>
             <input type="submit" value="Submit" />
-
+              <p style={{ color: "red" }}>
+                {errors}
+              </p>
           </form>
           </>
       )

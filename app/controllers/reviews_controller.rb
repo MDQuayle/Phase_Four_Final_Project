@@ -1,4 +1,5 @@
 class ReviewsController < ApplicationController
+rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
   def index
     if params[:movie_id]
       movie = Movie.find(params[:movie_id])
@@ -11,7 +12,7 @@ class ReviewsController < ApplicationController
 
     def create
       review = Review.create!(review_params)
-      render json: review
+      render json: review , status: :created
     end
 
     def update
@@ -37,6 +38,9 @@ class ReviewsController < ApplicationController
     private
     def review_params
         params.permit(:title, :content, :likes, :movie_id)
+    end
+    def render_unprocessable_entity_response(invalid)
+      render json: { errors: "Invalid Entry. Please include a title and at least 10 characters for your review" }, status: :unprocessable_entity
     end
     
 end

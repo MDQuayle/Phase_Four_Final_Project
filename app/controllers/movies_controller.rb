@@ -7,4 +7,8 @@ class MoviesController < ApplicationController
         movie = Movie.find_by(id: params[:id])
         render json: movie
     end
+    def alphabetize
+        movies = Movie.alphabetize
+        render json: movies
+    end
 end
